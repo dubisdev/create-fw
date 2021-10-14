@@ -1,0 +1,8 @@
+{
+  "name": "npm-development-framework",
+  "version": "0.0.1",
+  "description": "Light framework for developing npm packages 🚀",
+  "main": "index.js",
+  "author": "David Jiménez",
+  "license": "MIT"
+}
