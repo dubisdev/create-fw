@@ -4,5 +4,12 @@
   "description": "Light framework for developing npm packages 🚀",
   "main": "index.js",
   "author": "David Jiménez",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "inquirer": "^8.2.0",
+    "minimist": "^1.2.5",
+    "vorpal": "^1.12.0"
+  },
+  "repository": "https://github.com/dubisdev/npm-development-framework.git"
 }
