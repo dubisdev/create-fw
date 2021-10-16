@@ -1,4 +1,4 @@
-import { fork } from "child_process";
+import execa from "execa";
 import minimist from "minimist";
 import { getSelectedTemplate } from "./lib/inquirer.js";
 
@@ -12,8 +12,12 @@ console.log(
 
 let template = await getSelectedTemplate();
 
+const initArgs = process.argv.slice(2).filter((arg) => arg.startsWith("-"));
+
+const binArgs = ["init", ...initArgs];
+
 const templateAction = {
-	1: () => consle.log(1), //generatePackageJson(),
+	1: () => execa("yarn", binArgs, { stdio: "inherit" }), //generatePackageJson(),
 	2: () => console.log(2),
 };
 

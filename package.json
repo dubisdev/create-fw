@@ -1,12 +1,13 @@
 {
-  "name": "npm-development-framework",
+  "name": "framework-library",
   "version": "0.0.1",
-  "description": "Light framework for developing npm packages 🚀",
+  "description": "Light library of npm/yarn frameworks for developing js projects 🚀",
   "main": "index.js",
-  "author": "David Jiménez",
+  "author": "dubisdev",
   "license": "MIT",
   "type": "module",
   "dependencies": {
+    "execa": "^5.1.1",
     "inquirer": "^8.2.0",
     "minimist": "^1.2.5",
     "vorpal": "^1.12.0"
