@@ -1,12 +1,14 @@
 {
   "name": "create-framework-generator",
-  "version": "0.0.2-alpha.0",
+  "version": "0.0.2-alpha.1",
   "description": "Light generator of npm/yarn frameworks for developing js projects 🚀",
   "main": "index.js",
   "author": "dubisdev",
   "license": "MIT",
   "type": "module",
-  "bin": { "myapp" : "index.js" },
+  "bin": {
+    "myapp": "index.js"
+  },
   "dependencies": {
     "execa": "^5.1.1",
     "inquirer": "^8.2.0",
