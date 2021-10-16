@@ -1,5 +1,5 @@
 {
-  "name": "framework-generator",
+  "name": "create-framework-generator",
   "version": "0.0.1",
   "description": "Light generator of npm/yarn frameworks for developing js projects 🚀",
   "main": "index.js",
@@ -12,5 +12,5 @@
     "minimist": "^1.2.5",
     "vorpal": "^1.12.0"
   },
-  "repository": "https://github.com/dubisdev/npm-development-framework.git"
+  "repository": "https://github.com/dubisdev/create-framework-generator.git"
 }
