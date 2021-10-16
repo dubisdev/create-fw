@@ -1,7 +1,7 @@
 {
-  "name": "framework-library",
+  "name": "framework-generator",
   "version": "0.0.1",
-  "description": "Light library of npm/yarn frameworks for developing js projects 🚀",
+  "description": "Light generator of npm/yarn frameworks for developing js projects 🚀",
   "main": "index.js",
   "author": "dubisdev",
   "license": "MIT",
