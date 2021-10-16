@@ -7,7 +7,7 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "myapp": "index.js"
+    "create-framework-generator": "index.js"
   },
   "dependencies": {
     "execa": "^5.1.1",
