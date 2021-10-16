@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import execa from "execa";
 import minimist from "minimist";
 import { getSelectedTemplate } from "./lib/inquirer.js";

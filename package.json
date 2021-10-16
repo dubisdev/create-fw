@@ -6,6 +6,7 @@
   "author": "dubisdev",
   "license": "MIT",
   "type": "module",
+  "bin": { "myapp" : "index.js" },
   "dependencies": {
     "execa": "^5.1.1",
     "inquirer": "^8.2.0",
