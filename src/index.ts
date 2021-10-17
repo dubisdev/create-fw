@@ -14,4 +14,8 @@ const templateAction: { [key: number]: Function } = {
 
 const templateModule = await templateAction[template]();
 
-templateModule.default();
+await templateModule.default();
+
+console.log("Have fun coding!");
+
+process.exit(0);
