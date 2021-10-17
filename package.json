@@ -1,13 +1,13 @@
 {
   "name": "create-framework-generator",
   "version": "0.0.2-alpha.2",
-  "description": "Light generator of npm/yarn frameworks for developing js projects 🚀",
+  "description": "Light npm/yarn frameworks generator for your js projects 🚀",
   "main": "index.js",
   "author": "dubisdev",
   "license": "MIT",
   "type": "module",
   "bin": {
-    "create-framework-generator": "index.js"
+    "create-framework-generator": "dist/index.js"
   },
   "dependencies": {
     "execa": "^5.1.1",
@@ -15,5 +15,11 @@
     "minimist": "^1.2.5",
     "vorpal": "^1.12.0"
   },
-  "repository": "https://github.com/dubisdev/create-framework-generator.git"
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": "https://github.com/dubisdev/create-framework-generator.git",
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  }
 }
