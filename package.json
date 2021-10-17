@@ -1,6 +1,6 @@
 {
   "name": "create-framework-generator",
-  "version": "0.0.2-alpha.2",
+  "version": "0.0.2-alpha.3",
   "description": "Light npm/yarn frameworks generator for your js projects 🚀",
   "main": "dist/index.js",
   "author": "dubisdev",
