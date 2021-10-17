@@ -6,9 +6,9 @@
 
 By default the cli uses the package manager used for invoking the command:
 
-    👉 `yarn create framework-generator` - Uses _yarn_
+        👉 `yarn create framework-generator` - Uses _yarn_
 
-    👉 `npm init framework-generator` / `npx create-framework-generator` - Uses _npm_
+        👉 `npm init framework-generator` / `npx create-framework-generator` - Uses npm
 
 #### 💡 You can use some flags to change this
 
