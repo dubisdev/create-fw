@@ -7,9 +7,10 @@
 By default the cli uses the package manager used for invoking the command:
 
 👉 `yarn create framework-generator` - Uses _yarn_
+
 👉 `npm init framework-generator` / `npx create-framework-generator` - Uses _npm_
 
-You can use some flags to change this
+#### 💡 You can use some flags to change this
 
 - [x] --yarn: forces the cli to use yarn as package manager
 
@@ -23,9 +24,11 @@ npm init framework-generator --yarn #will use yarn
 yarn create framework-generator --npm #will use npm
 ```
 
-## Basic
+## Templates
 
-Allows you to create a personaliced package json
+### Basic
+
+Starts a project with a personaliced package.json file
 
 ```bash
 yarn create framework-generator # (select > basic)
