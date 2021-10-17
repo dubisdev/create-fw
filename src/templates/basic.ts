@@ -1,7 +1,6 @@
 import execa from "execa";
+import { getPkgManager } from "../lib/arg.js";
 
-const pkgManager = process.argv[1];
+const pkgManager = await getPkgManager();
 
-console.log(process.argv);
-
-export default () => execa("yarn", ["init"], { stdio: "inherit" });
+export default () => execa(pkgManager, ["init"], { stdio: "inherit" });

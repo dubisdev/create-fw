@@ -17,7 +17,7 @@
     "vorpal": "^1.12.0"
   },
   "scripts": {
-    "dev": "yarn build && node .",
+    "dev": "yarn build && node . --npm",
     "build": "tsc"
   },
   "repository": "https://github.com/dubisdev/create-framework-generator.git",
