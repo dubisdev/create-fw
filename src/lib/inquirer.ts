@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
 
-export const getSelectedTemplate = () => {
+export const getSelectedTemplate = (): Promise<number> => {
 	return inquirer
 		.prompt({
 			name: "template",
@@ -11,5 +11,5 @@ export const getSelectedTemplate = () => {
 				"2 - Typescript: Basic + Typescript support",
 			],
 		})
-		.then((res) => res.template[0]);
+		.then((res) => res.template[0] as number);
 };
