@@ -4,8 +4,6 @@ import minimist from "minimist";
 export const getPkgManager = async (): Promise<string> => {
 	const args = minimist(process.argv.slice(2), { boolean: true });
 
-	console.log(args);
-
 	if (args.yarn) return Promise.resolve("yarn");
 	if (args.npm) return Promise.resolve("npm");
 
@@ -46,5 +44,8 @@ export const getPkgManager = async (): Promise<string> => {
 	return bin;
 };
 
-//const args = minimist(process.argv || "");
-//console.log(args);
+export const defaultFlagExists = () => {
+	const options = minimist(process.argv.slice(2), { boolean: true });
+
+	return options?.y === true;
+};

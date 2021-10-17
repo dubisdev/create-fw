@@ -1,6 +1,9 @@
 import execa from "execa";
-import { getPkgManager } from "../lib/arg.js";
+import { defaultFlagExists, getPkgManager } from "../lib/arg.js";
 
 const pkgManager = await getPkgManager();
 
-export default () => execa(pkgManager, ["init"], { stdio: "inherit" });
+const yesFlag = defaultFlagExists() ? "-y" : "";
+
+export default () =>
+	execa.command(`${pkgManager} init ${yesFlag}`, { stdio: "inherit" });
