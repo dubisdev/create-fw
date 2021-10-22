@@ -1,4 +1,4 @@
-# NODE CREATE-FW 🪓
+# CREATE-FW 🪓
 
 > Light framework generator for your JS projects 🪓
 
