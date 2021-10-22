@@ -55,3 +55,9 @@ export const commonjsFlagExists = () => {
 
 	return options?.cjs === true;
 };
+
+export const projectFolderExists = () => {
+	const options = minimist(process.argv.slice(2), { boolean: true });
+
+	return options?._[0];
+};
