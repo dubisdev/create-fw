@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { getSelectedTemplate } from "./lib/inquirer.js";
+import createProjectFolder from "./lib/createprojectfolder.js";
 
 console.log(
 	"Welcome to npm-framework-generator. Select one template or generate yours: "
@@ -13,8 +14,9 @@ const templateAction: { [key: number]: Function } = {
 	2: () => import("./templates/typescript.js"),
 };
 
-const templateModule = await templateAction[template]();
+await createProjectFolder();
 
+const templateModule = await templateAction[template]();
 await templateModule.default();
 
 console.log("Have fun coding!");
