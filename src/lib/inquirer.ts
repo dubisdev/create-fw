@@ -6,7 +6,10 @@ export const getSelectedTemplate = (): Promise<number> => {
 			name: "template",
 			message: "Select one template:",
 			type: "list",
-			choices: ["1 - Basic: generate package.json"],
+			choices: [
+				"1 - Basic: generate package.json",
+				"2 - Typescript: basic + TypeScript support",
+			],
 		})
 		.then((res) => res.template[0] as number);
 };
