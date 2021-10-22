@@ -7,7 +7,7 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "create-framework-generator": "dist/index.js"
+    "create-fw": "dist/index.js"
   },
   "dependencies": {
     "create-file": "^1.0.1",
