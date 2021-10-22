@@ -1,6 +1,6 @@
 {
   "name": "create-fw",
-  "version": "0.0.1-alpha.3",
+  "version": "0.0.0-development",
   "description": "Light framework generator for your JS projects 🪓",
   "main": "dist/index.js",
   "author": "dubisdev",
@@ -18,18 +18,20 @@
   },
   "scripts": {
     "dev": "yarn build && node .",
-    "build": "tsc"
+    "build": "tsc",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dubisdev/create-fw.git"
+    "url": "https://github.com/dubisdev/create-fw.git"
   },
   "devDependencies": {
     "@types/edit-json-file": "^1.6.1",
     "@types/inquirer": "^8.1.3",
     "@types/minimist": "^1.2.2",
     "@types/node": "^16.11.3",
-    "typescript": "^4.4.4"
+    "typescript": "^4.4.4",
+    "semantic-release": "^18.0.0"
   },
   "bugs": {
     "url": "https://github.com/dubisdev/create-fw/issues"
