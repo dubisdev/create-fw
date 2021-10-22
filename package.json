@@ -42,5 +42,9 @@
     "create",
     "framework generator",
     "dev-tool"
-  ]
+  ],
+
+  "release": {
+    "branches": ["main", "dev"]
+  }
 }
