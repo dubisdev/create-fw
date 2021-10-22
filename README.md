@@ -50,6 +50,8 @@ By default the CLI uses the package manager used for invoking the command:
 
 The **`-y` flag** sets all commands as default. It works like the -y flag in `npm init` or `yarn init`: creates the project without asking about personalization to the user.
 
+  <p align="center">-----</p>
+
 ### 🧰 CommmonJS or ESModules
 
 We believe that the future of JS development must go through the abandonment of CommonJS, so the **default system creates projects to develop using ESModules**.
