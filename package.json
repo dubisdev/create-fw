@@ -1,6 +1,6 @@
 {
   "name": "create-fw",
-  "version": "0.0.1-alpha.1",
+  "version": "0.0.1-alpha.2",
   "description": "Light framework generator for your JS projects 🪓",
   "main": "dist/index.js",
   "author": "dubisdev",
