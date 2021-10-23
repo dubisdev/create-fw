@@ -1,4 +1,4 @@
-#!/usr/bin/env node --silent
+#!/usr/bin/env node
 
 import { getSelectedTemplate } from "./lib/inquirer.js";
 import createProjectFolder from "./lib/createprojectfolder.js";
