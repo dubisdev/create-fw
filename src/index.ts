@@ -12,6 +12,7 @@ let template = await getSelectedTemplate();
 const templateAction: { [key: number]: Function } = {
 	1: () => import("./templates/basic.js"),
 	2: () => import("./templates/typescript.js"),
+	3: () => import("./templates/jest.js"),
 };
 
 await createProjectFolder();
