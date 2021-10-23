@@ -7,7 +7,8 @@
   "license": "MIT",
   "type": "module",
   "bin": {
-    "create-fw": "dist/index.js"
+    "create-fw": "dist/index.js",
+    "create-fw@rc": "dist/index.js"
   },
   "dependencies": {
     "create-file": "^1.0.1",
