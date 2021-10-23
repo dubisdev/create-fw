@@ -17,7 +17,8 @@ export default async () => {
 
 const installTypescript = () => {
 	return execa.command(
-		`${pkgManager} ${pkgManager !== "yarn" ? "i" : "add"} typescript -D`
+		`${pkgManager} ${pkgManager !== "yarn" ? "i" : "add"} typescript -D`,
+		{ stdio: "inherit" }
 	);
 };
 
@@ -70,5 +71,5 @@ const createFileStructure = async () => {
 		`console.log("Hello world")`,
 		() => null
 	);
-	await execa.command(`${pkgManager} run build`);
+	await execa.command(`${pkgManager} run build`, { stdio: "inherit" });
 };

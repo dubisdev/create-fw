@@ -9,6 +9,7 @@ export const getSelectedTemplate = (): Promise<number> => {
 			choices: [
 				"1 - Basic: generate package.json",
 				"2 - Typescript: basic + TypeScript support",
+				"3 - Jest: basic + Jest configuration",
 			],
 		})
 		.then((res) => res.template[0] as number);
