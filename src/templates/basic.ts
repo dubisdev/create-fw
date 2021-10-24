@@ -44,7 +44,7 @@ const generateIndex = async () => {
 	const path = await import("path");
 	let file = editJsonFile(`${process.cwd()}/package.json`);
 
-	return await writeFileSyncRecursive(
+	writeFileSyncRecursive(
 		path.join(process.cwd(), file.get("main")),
 		"console.log('Hello world!')"
 	);

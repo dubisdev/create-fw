@@ -11,19 +11,17 @@ export default async () => {
 	await basic(false); //generates package.json
 };
 
-const createReactApp = () => {
+const createReactApp = async () => {
 	let installSpinner = ora("Creating React App").start();
 
 	switch (pkgManager) {
 		case "yarn":
-			return execa.command(`yarn create react-app .`).then(() => {
-				installSpinner.stop();
-				console.log(chalk.bold("\n🪓 Created: react-app schema"));
-			});
+			await execa.command(`yarn create react-app .`);
+			break;
 		default:
-			return execa.command(`npx create-react-app .`).then(() => {
-				installSpinner.stop();
-				console.log(chalk.bold("\n🪓 Created: react-app schema"));
-			});
+			await execa.command(`npx create-react-app .`);
 	}
+
+	installSpinner.stop();
+	console.log(chalk.bold("\n🪓 Created: react-app schema"));
 };
