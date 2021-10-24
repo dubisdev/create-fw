@@ -4,6 +4,7 @@ import {
 	getPkgManager,
 	commonjsFlagExists,
 } from "../lib/arg.js";
+import { writeFileSyncRecursive } from "../lib/writeFileSyncRecursive.js";
 import editJsonFile from "edit-json-file";
 import chalk from "chalk";
 import ora from "ora";
@@ -12,7 +13,7 @@ const pkgManager = await getPkgManager();
 
 const yesFlag = defaultFlagExists() ? "-y" : "";
 
-export default async () => {
+export default async (createIndex = true) => {
 	console.log(chalk.bold("\n🪓 Generating: package.json\n"));
 
 	//configure spinner if it will no ask the user (background task)
@@ -33,5 +34,18 @@ export default async () => {
 	file.save();
 
 	spinner?.stop();
+
+	createIndex ? await generateIndex() : null;
+
 	console.log(chalk.bold("🪓 Generated: package.json"));
+};
+
+const generateIndex = async () => {
+	const path = await import("path");
+	let file = editJsonFile(`${process.cwd()}/package.json`);
+
+	writeFileSyncRecursive(
+		path.join(process.cwd(), file.get("main")),
+		"console.log('Hello world!')"
+	);
 };

@@ -8,11 +8,7 @@ const pkgManager = await getPkgManager();
 
 export default async () => {
 	await basic(); //generates package.json
-
-	// install jest
-
 	await installJest();
-
 	await createJestConfigFile();
 };
 

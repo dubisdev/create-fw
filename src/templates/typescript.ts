@@ -2,15 +2,14 @@ import execa from "execa";
 import { commonjsFlagExists, getPkgManager } from "../lib/arg.js";
 import basic from "./basic.js";
 import editJsonFile from "edit-json-file";
-import createFile from "create-file";
 import ora from "ora";
 import chalk from "chalk";
-import { POINT_CONVERSION_COMPRESSED } from "constants";
+import { writeFileSyncRecursive } from "../lib/writeFileSyncRecursive.js";
 
 const pkgManager = await getPkgManager();
 
 export default async () => {
-	await basic(); //generates package.json
+	await basic(false); //generates package.json
 
 	await installTypescript();
 	await createTypescriptConfigFile();
@@ -78,11 +77,12 @@ const updatePackageJsonFile = () => {
 
 const createFileStructure = async () => {
 	let spinner = ora("Generating file structure").start();
-	createFile(
+
+	writeFileSyncRecursive(
 		`${process.cwd()}/src/index.ts`,
-		`console.log("Hello world")`,
-		() => null
+		`console.log("Hello world")`
 	);
+
 	await execa.command(`${pkgManager} run build`).then(() => {
 		spinner.stop();
 	});
