@@ -4,6 +4,7 @@ import basic from "./basic.js";
 import editJsonFile from "edit-json-file";
 import ora from "ora";
 import chalk from "chalk";
+import { writeFileSyncRecursive } from "../lib/writeFileSyncRecursive.js";
 
 const pkgManager = await getPkgManager();
 
@@ -77,7 +78,7 @@ const updatePackageJsonFile = () => {
 const createFileStructure = async () => {
 	let spinner = ora("Generating file structure").start();
 
-	(await import("fs")).writeFileSync(
+	writeFileSyncRecursive(
 		`${process.cwd()}/src/index.ts`,
 		`console.log("Hello world")`
 	);
