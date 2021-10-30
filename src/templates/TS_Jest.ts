@@ -11,33 +11,62 @@ const pkgManager = await getPkgManager();
 export default async () => {
 	await basic(false); //generates package.json
 
-	await installTypescript();
+	await installAllDependencies();
 	await createTypescriptConfigFile();
+	await createJestConfig();
 	await updatePackageJsonFile();
 	await createFileStructure();
 };
 
-const installTypescript = () => {
-	let installSpinner = ora("Downloading Typescript").start();
-	return execa
-		.command(
-			`${pkgManager} ${pkgManager !== "yarn" ? "i" : "add"} typescript -D`
-		)
-		.then(() => {
-			installSpinner.stop();
-			console.log(chalk.bold("🪓 Installed: Typescript"));
-		});
+const installAllDependencies = async () => {
+	let installSpinner = ora(
+		"Downloading Dependencies: Typescript, Jest, ts-jest"
+	).start();
+
+	await execa.command(
+		`${pkgManager} ${
+			pkgManager !== "yarn" ? "i" : "add"
+		} jest typescript ts-jest @types/jest -D`
+	);
+
+	installSpinner.stop();
+	console.log(chalk.bold("🪓 Installed: Typescript, Jest, ts-jest"));
 };
 
-const createTypescriptConfigFile = () => {
+const createJestConfig = async () => {
+	let spinner = ora("Generating Jest Config").start();
+	let pkgJson = editJsonFile(`${process.cwd()}/package.json`);
+
+	pkgJson.set("jest", {
+		preset: "ts-jest/presets/js-with-ts-esm",
+		rootDir: "src",
+		extensionsToTreatAsEsm: [".ts"],
+		globals: {
+			"ts-jest": {
+				useESM: true,
+			},
+		},
+		moduleNameMapper: {
+			"^(\\.{1,2}/.*)\\.js$": "$1",
+		},
+	});
+
+	pkgJson.set("scripts.test", "jest");
+
+	pkgJson.save();
+	spinner.stop();
+	console.log(chalk.bold("\n🪓 Generated: jest config"));
+};
+
+const createTypescriptConfigFile = async () => {
 	let spinner = ora("Generating Typescript Config").start();
 	let tsconfig = editJsonFile(`${process.cwd()}/tsconfig.json`);
 
 	tsconfig.set("compilerOptions", {
-		target: "ES6",
+		target: "ES5",
 		module: "ES6",
-		rootDir: "./src",
-		outDir: "./dist",
+		rootDir: "src",
+		outDir: "./dist/",
 		moduleResolution: "node",
 		allowJs: true,
 		checkJs: true,
@@ -46,6 +75,8 @@ const createTypescriptConfigFile = () => {
 		strict: true,
 		noImplicitAny: true,
 		skipLibCheck: true,
+		declaration: true,
+		declarationMap: true,
 	});
 
 	tsconfig.save();
@@ -53,7 +84,7 @@ const createTypescriptConfigFile = () => {
 	console.log(chalk.bold("🪓 Generated: tsconfig.json"));
 };
 
-const updatePackageJsonFile = () => {
+const updatePackageJsonFile = async () => {
 	let packagejson = editJsonFile(`${process.cwd()}/package.json`);
 
 	packagejson.set("scripts.build", "tsc");
@@ -68,6 +99,12 @@ const createFileStructure = async () => {
 	writeFileSyncRecursive(
 		`${process.cwd()}/src/index.ts`,
 		`console.log("Hello world")`
+	);
+	writeFileSyncRecursive(
+		`${process.cwd()}/src/__tests__/index.tests.ts`,
+		`test("Default test", () => {
+			expect(true).toBe(true);
+		})`
 	);
 
 	await execa.command(`${pkgManager} run build`).then(() => {

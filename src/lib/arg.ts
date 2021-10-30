@@ -50,12 +50,6 @@ export const defaultFlagExists = () => {
 	return options?.y === true;
 };
 
-export const commonjsFlagExists = () => {
-	const options = minimist(process.argv.slice(2), { boolean: true });
-
-	return options?.cjs === true;
-};
-
 export const projectFolderExists = () => {
 	const options = minimist(process.argv.slice(2), { boolean: true });
 
