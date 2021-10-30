@@ -11,6 +11,7 @@ export const getSelectedTemplate = (): Promise<number> => {
 				"2 - Typescript: basic + TypeScript support",
 				"3 - Jest: basic + Jest configuration",
 				"4 - React: runs create-react-app",
+				"5 - Typescript + Jest",
 			],
 		})
 		.then((res) => res.template[0] as number);
