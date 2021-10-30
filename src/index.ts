@@ -16,6 +16,7 @@ const templateAction: { [key: number]: Function } = {
 	2: () => import("./templates/typescript.js"),
 	3: () => import("./templates/jest.js"),
 	4: () => import("./templates/react.js"),
+	5: () => import("./templates/TS_Jest.js"),
 };
 
 await createProjectFolder();
