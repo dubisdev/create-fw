@@ -2,7 +2,7 @@
 
 > Light framework generator for your JS projects 🪓
 
-| ⚠ This package is in **alpha phase**, its functionalities are very limited for now.
+| ⚠ This package is in **beta phase**, its functionalities are very limited for now and they can change until first production release.
 
 ---
 
