@@ -1,5 +1,5 @@
 import execa from "execa";
-import { commonjsFlagExists, getPkgManager } from "../lib/arg.js";
+import { getPkgManager } from "../lib/arg.js";
 import basic from "./basic.js";
 import editJsonFile from "edit-json-file";
 import ora from "ora";
@@ -33,34 +33,21 @@ const createTypescriptConfigFile = () => {
 	let spinner = ora("Generating Typescript Config").start();
 	let tsconfig = editJsonFile(`${process.cwd()}/tsconfig.json`);
 
-	commonjsFlagExists()
-		? tsconfig.set("compilerOptions", {
-				target: "ES6",
-				module: "CommonJS",
-				rootDir: "./src",
-				outDir: "./dist",
-				moduleResolution: "node",
-				allowJs: true,
-				checkJs: true,
-				forceConsistentCasingInFileNames: true,
-				strict: true,
-				noImplicitAny: true,
-				skipLibCheck: true,
-		  })
-		: tsconfig.set("compilerOptions", {
-				target: "ES6",
-				module: "ES6",
-				rootDir: "./src",
-				outDir: "./dist",
-				moduleResolution: "node",
-				allowJs: true,
-				checkJs: true,
-				esModuleInterop: true,
-				forceConsistentCasingInFileNames: true,
-				strict: true,
-				noImplicitAny: true,
-				skipLibCheck: true,
-		  });
+	tsconfig.set("compilerOptions", {
+		target: "ES6",
+		module: "ES6",
+		rootDir: "./src",
+		outDir: "./dist",
+		moduleResolution: "node",
+		allowJs: true,
+		checkJs: true,
+		esModuleInterop: true,
+		forceConsistentCasingInFileNames: true,
+		strict: true,
+		noImplicitAny: true,
+		skipLibCheck: true,
+	});
+
 	tsconfig.save();
 	spinner.stop();
 	console.log(chalk.bold("🪓 Generated: tsconfig.json"));

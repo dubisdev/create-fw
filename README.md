@@ -52,12 +52,6 @@ The **`-y` flag** sets all commands as default. It works like the -y flag in `np
 
   <p align="center">-----</p>
 
-### 🧰 CommmonJS or ESModules
+### 🧰 ESModules
 
-We believe that the future of JS development must go through the abandonment of CommonJS, so the **default system creates projects to develop using ESModules**.
-
-Despite this, there is an option to configure the project to work with CommonJS, and this is using the "-cjs" flag
-
-        👉 `yarn create fw --cjs` - Creates a project to work with CommonJS
-
-        👉 `npm init fw --cjs` / `npx create-fw --cjs` - Creates a project to work with CommonJS
+Create-FW **does not generate projects based on commonjs** since it is a non-standard technology at the time of creation of the tool. **Therefore all the generated code is based on ESModules**.

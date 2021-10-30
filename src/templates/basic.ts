@@ -1,9 +1,5 @@
 import execa from "execa";
-import {
-	defaultFlagExists,
-	getPkgManager,
-	commonjsFlagExists,
-} from "../lib/arg.js";
+import { defaultFlagExists, getPkgManager } from "../lib/arg.js";
 import { writeFileSyncRecursive } from "../lib/writeFileSyncRecursive.js";
 import editJsonFile from "edit-json-file";
 import chalk from "chalk";
@@ -26,11 +22,9 @@ export default async (createIndex = true) => {
 		stdio,
 	});
 
-	//set esmodules or commonjs
+	//set esmodules
 	let file = editJsonFile(`${process.cwd()}/package.json`);
-	commonjsFlagExists()
-		? file.set("type", "commonjs")
-		: file.set("type", "module");
+	file.set("type", "module");
 	file.save();
 
 	spinner?.stop();
