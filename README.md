@@ -2,8 +2,6 @@
 
 > Light framework generator for your JS projects 🪓
 
-| ⚠ This package is in **beta phase**, its functionalities are very limited for now and they can change until first production release.
-
 ---
 
 <h2 align="center"> 🦴 TEMPLATES </h2>

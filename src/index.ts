@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { getSelectedTemplate } from "./lib/inquirer.js";
+import { getSelectedTemplate } from "./lib/prompts.js";
 import createProjectFolder from "./lib/createprojectfolder.js";
 import chalk from "chalk";
 
