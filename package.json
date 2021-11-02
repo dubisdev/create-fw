@@ -2,13 +2,11 @@
   "name": "create-fw",
   "version": "0.0.0-development",
   "description": "Light framework generator for your JS projects 🪓",
-  "main": "dist/index.js",
+  "main": "dist/cli.js",
   "author": "dubisdev",
   "license": "MIT",
   "type": "module",
-  "bin": {
-    "create-fw": "dist/index.js"
-  },
+  "bin": "dist/cli.js",
   "dependencies": {
     "chalk": "^4.1.2",
     "edit-json-file": "^1.6.0",
@@ -56,7 +54,7 @@
       },
       {
         "name": "dev",
-        "channel": false,
+        "channel": "beta",
         "prerelease": "beta"
       }
     ]
