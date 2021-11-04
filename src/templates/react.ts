@@ -1,7 +1,8 @@
 import execa from "execa";
-import { getPkgManager } from "../lib/arg.js";
 import chalk from "chalk";
 import ora from "ora";
+
+import { getPkgManager } from "../services/index.js";
 import basic from "./basic.js";
 
 const pkgManager = await getPkgManager();
