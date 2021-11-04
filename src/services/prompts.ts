@@ -1,6 +1,6 @@
 import prompts from "prompts";
 
-export const getSelectedTemplate = async (): Promise<number> => {
+export const askUserForTemplate = async (): Promise<number> => {
 	const onCancel = () => {
 		process.exit(0);
 	};

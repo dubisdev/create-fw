@@ -1,9 +1,13 @@
 import execa from "execa";
-import { defaultFlagExists, getPkgManager } from "../lib/arg.js";
-import { writeFileSyncRecursive } from "../lib/writeFileSyncRecursive.js";
 import editJsonFile from "edit-json-file";
 import chalk from "chalk";
 import ora from "ora";
+
+import {
+	defaultFlagExists,
+	getPkgManager,
+	writeFileSyncRecursive,
+} from "../services/index.js";
 
 const pkgManager = await getPkgManager();
 

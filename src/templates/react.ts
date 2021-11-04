@@ -1,7 +1,8 @@
 import execa from "execa";
-import { getPkgManager } from "../lib/arg.js";
 import chalk from "chalk";
 import ora from "ora";
+
+import { getPkgManager } from "../services/index.js";
 import basic from "./basic.js";
 
 const pkgManager = await getPkgManager();
@@ -14,13 +15,12 @@ export default async () => {
 const createReactApp = async () => {
 	let installSpinner = ora("Creating React App").start();
 
-	switch (pkgManager) {
-		case "yarn":
-			await execa.command(`yarn create react-app .`);
-			break;
-		default:
-			await execa.command(`npx create-react-app .`);
-	}
+	let command =
+		pkgManager === "yarn"
+			? `yarn create react-app .`
+			: `npx create-react-app .`;
+
+	await execa.command(command);
 
 	installSpinner.stop();
 	console.log(chalk.bold("\n🪓 Created: react-app schema"));
