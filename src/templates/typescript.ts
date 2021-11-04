@@ -17,16 +17,14 @@ export default async () => {
 	await createFileStructure();
 };
 
-const installTypescript = () => {
+const installTypescript = async () => {
 	let installSpinner = ora("Downloading Typescript").start();
-	return execa
-		.command(
-			`${pkgManager} ${pkgManager !== "yarn" ? "i" : "add"} typescript -D`
-		)
-		.then(() => {
-			installSpinner.stop();
-			console.log(chalk.bold("🪓 Installed: Typescript"));
-		});
+	await execa.command(
+		`${pkgManager} ${pkgManager !== "yarn" ? "i" : "add"} typescript -D`
+	);
+
+	installSpinner.stop();
+	console.log(chalk.bold("🪓 Installed: Typescript"));
 };
 
 const createTypescriptConfigFile = () => {
@@ -70,7 +68,6 @@ const createFileStructure = async () => {
 		`console.log("Hello world")`
 	);
 
-	await execa.command(`${pkgManager} run build`).then(() => {
-		spinner.stop();
-	});
+	await execa.command(`${pkgManager} run build`);
+	spinner.stop();
 };

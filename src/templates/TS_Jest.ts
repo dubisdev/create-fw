@@ -107,7 +107,6 @@ const createFileStructure = async () => {
 		})`
 	);
 
-	await execa.command(`${pkgManager} run build`).then(() => {
-		spinner.stop();
-	});
+	await execa.command(`${pkgManager} run build`);
+	spinner.stop();
 };

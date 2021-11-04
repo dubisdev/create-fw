@@ -15,13 +15,12 @@ export default async () => {
 const createReactApp = async () => {
 	let installSpinner = ora("Creating React App").start();
 
-	switch (pkgManager) {
-		case "yarn":
-			await execa.command(`yarn create react-app .`);
-			break;
-		default:
-			await execa.command(`npx create-react-app .`);
-	}
+	let command =
+		pkgManager === "yarn"
+			? `yarn create react-app .`
+			: `npx create-react-app .`;
+
+	await execa.command(command);
 
 	installSpinner.stop();
 	console.log(chalk.bold("\n🪓 Created: react-app schema"));
