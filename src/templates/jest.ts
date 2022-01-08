@@ -1,8 +1,9 @@
 import execa from "execa";
-import { getPkgManager } from "../lib/arg.js";
-import basic from "./basic.js";
 import ora from "ora";
 import chalk from "chalk";
+
+import { getPkgManager } from "../services/index.js";
+import basic from "./basic.js";
 
 const pkgManager = await getPkgManager();
 
@@ -12,27 +13,20 @@ export default async () => {
 	await createJestConfigFile();
 };
 
-const installJest = () => {
+const installJest = async () => {
 	let installSpinner = ora("Downloading Jest").start();
-	return execa
-		.command(`${pkgManager} ${pkgManager !== "yarn" ? "i" : "add"} jest -D`)
-		.then(() => {
-			installSpinner.stop();
-			console.log(chalk.bold("🪓 Installed: Jest"));
-		});
+	await execa.command(
+		`${pkgManager} ${pkgManager !== "yarn" ? "i" : "add"} jest -D`
+	);
+
+	installSpinner.stop();
+	console.log(chalk.bold("🪓 Installed: Jest"));
 };
 
-const createJestConfigFile = () => {
-	switch (pkgManager) {
-		case "yarn":
-			return execa
-				.command(`yarn jest --init`, { stdio: "inherit" })
-				.then(() => {
-					console.log(chalk.bold("\n🪓 Generated: jest-config file"));
-				});
-		default:
-			return execa.command(`npx jest --init`, { stdio: "inherit" }).then(() => {
-				console.log(chalk.bold("\n🪓 Generated: jest-config file"));
-			});
-	}
+const createJestConfigFile = async () => {
+	let command = pkgManager === "yarn" ? `yarn jest --init` : `npx jest --init`;
+
+	await execa.command(command, { stdio: "inherit" });
+
+	console.log(chalk.bold("\n🪓 Generated: jest-config file"));
 };

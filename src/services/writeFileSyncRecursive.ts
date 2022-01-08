@@ -1,6 +1,6 @@
 import fs from "fs";
 
-export function writeFileSyncRecursive(filename: string, content: string) {
+export const writeFileSyncRecursive = (filename: string, content: string) => {
 	// -- normalize path separator to '/' instead of path.sep,
 	// -- as / works in node for Windows as well, and mixed \\ and / can appear in the path
 	let filepath = filename.replace(/\\/g, "/");
@@ -30,4 +30,4 @@ export function writeFileSyncRecursive(filename: string, content: string) {
 
 	// -- write file
 	fs.writeFileSync(root + filepath, content);
-}
+};

@@ -1,7 +1,7 @@
 import execa from "execa";
-import { projectFolderExists } from "./arg.js";
+import { projectFolderExists } from "./args.js";
 
-export default async () => {
+export const createProjectFolder = async () => {
 	const folder = projectFolderExists();
 
 	if (folder) {
